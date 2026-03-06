@@ -1,0 +1,134 @@
+.night-scene{
+height:100vh;
+background:radial-gradient(circle,#041016,#000);
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+position:relative;
+overflow:hidden;
+}
+
+/* stars */
+
+.stars{
+position:absolute;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(2px 2px at 20% 30%,white,transparent),
+radial-gradient(2px 2px at 60% 10%,white,transparent),
+radial-gradient(2px 2px at 80% 60%,white,transparent),
+radial-gradient(2px 2px at 40% 80%,white,transparent);
+opacity:.4;
+}
+
+/* glowing text */
+
+.glow-text{
+position:absolute;
+top:70px;
+font-size:40px;
+font-weight:bold;
+color:#cffff9;
+text-align:center;
+
+text-shadow:
+0 0 10px #7ffff5,
+0 0 20px #7ffff5,
+0 0 40px #7ffff5,
+0 0 80px #7ffff5;
+
+animation:glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse{
+
+0%{
+text-shadow:
+0 0 10px #7ffff5,
+0 0 20px #7ffff5,
+0 0 40px #7ffff5;
+}
+
+50%{
+text-shadow:
+0 0 20px #7ffff5,
+0 0 40px #7ffff5,
+0 0 80px #7ffff5;
+}
+
+100%{
+text-shadow:
+0 0 10px #7ffff5,
+0 0 20px #7ffff5,
+0 0 40px #7ffff5;
+}
+
+}
+
+/* flower */
+
+.flower-svg{
+width:420px;
+animation:sway 4s ease-in-out infinite;
+}
+
+.stem{
+stroke:#38d2c4;
+stroke-width:6;
+fill:none;
+}
+
+.leaf{
+fill:#2fa8a3;
+}
+
+.petal{
+fill:#c8fff6;
+filter:drop-shadow(0 0 12px #7ffff5);
+}
+
+.center{
+fill:#fff3a0;
+filter:drop-shadow(0 0 15px #ffe26a);
+}
+
+/* sway */
+
+@keyframes sway{
+0%{transform:rotate(-2deg)}
+50%{transform:rotate(2deg)}
+100%{transform:rotate(-2deg)}
+}
+
+/* particles */
+
+.particles span{
+position:absolute;
+bottom:150px;
+width:5px;
+height:5px;
+background:#8ffff7;
+border-radius:50%;
+box-shadow:0 0 10px #7ffff5;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+30%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-300px);
+opacity:0;
+}
+
+}

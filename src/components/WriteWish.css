@@ -1,0 +1,364 @@
+.composer-page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px 16px;
+  background:
+    radial-gradient(1200px 700px at 20% 15%, rgba(255,255,255,.85), transparent 60%),
+    radial-gradient(900px 600px at 80% 20%, rgba(255,255,255,.55), transparent 55%),
+    linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+  overflow:hidden;
+}
+
+.composer-shell{
+  width:min(980px,100%);
+  position:relative;
+}
+
+.composer-stage{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  position:relative;
+}
+
+/* Card nhập thông tin tạo thư */
+.composer-card{
+  width:100%;
+  max-width:420px;
+  margin:0 auto;
+  background:rgba(255,255,255,0.98);
+  border-radius:20px;
+  box-shadow:0 8px 32px rgba(255,45,122,.13);
+  padding:32px 24px 24px 24px;
+  border:1.5px solid rgba(255,45,122,.13);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  z-index:10;
+}
+
+.composer-card .paper-title{
+  font-size:22px;
+  margin-bottom:18px;
+  color:#ff2d7a;
+  text-align:center;
+}
+
+.composer-card .composer-controls{
+  flex-direction:column;
+  align-items:stretch;
+  gap:14px;
+  width:100%;
+  margin-bottom:8px;
+}
+
+.composer-card .wish-input{
+  margin-bottom:10px;
+  min-height:110px;
+}
+
+.composer-card .composer-hint{
+  margin-top:8px;
+  text-align:center;
+}
+
+.composer-sky{
+  position:absolute;
+  inset:-24px -24px auto -24px;
+  height:180px;
+  pointer-events:none;
+  filter:drop-shadow(0 12px 30px rgba(255,64,129,.18));
+}
+
+.paper-title{
+  font-weight:800;
+  font-size:20px;
+  letter-spacing:.2px;
+  color:#ff2d7a;
+  margin-bottom:10px;
+}
+
+.wish-input{
+  width:100%;
+  height:130px;
+  resize:none;
+  border-radius:16px;
+  border:2px solid rgba(255,45,122,.28);
+  padding:12px 14px;
+  outline:none;
+  font-size:16px;
+  line-height:1.4;
+  box-shadow:0 18px 40px rgba(0,0,0,.06);
+}
+.wish-input:focus{
+  border-color:rgba(255,45,122,.45);
+  box-shadow:0 0 0 4px rgba(255,45,122,.12), 0 18px 40px rgba(0,0,0,.06);
+}
+.wish-input:disabled{
+  opacity:.8;
+  background:rgba(255,255,255,.75);
+}
+
+.composer-controls{
+  display:flex;
+  gap:10px;
+  width:100%;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+.music-select{
+  flex:1;
+  min-width:220px;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.12);
+  background:white;
+}
+.music-select:disabled{
+  opacity:.75;
+}
+
+.send-btn{
+  padding:11px 14px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,#ff2d7a,#ff6aa7);
+  color:white;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 14px 30px rgba(255,45,122,.25);
+}
+.send-btn:disabled{
+  cursor:not-allowed;
+  opacity:.75;
+  box-shadow:none;
+}
+
+.pwd-input{
+  min-width:160px;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.12);
+  background:white;
+}
+.pwd-input:disabled{
+  opacity:.75;
+}
+
+.composer-hint{
+  margin-top:10px;
+  font-size:13px;
+  color:rgba(0,0,0,.62);
+}
+
+/* Envelope scene */
+.envelope{
+  width:min(560px,92vw);
+  height:330px;
+  position:relative;
+  perspective:1200px;
+  transform:translateZ(0);
+  transition:transform 800ms cubic-bezier(.2,.9,.2,1), opacity 600ms ease;
+}
+
+.env-back{
+  position:absolute;
+  inset:0;
+  border-radius:22px;
+  background:linear-gradient(180deg,#fff7fb,#ffedf6);
+  border:1px solid rgba(255,45,122,.16);
+  box-shadow:0 30px 80px rgba(0,0,0,.14);
+}
+
+.env-front{
+  position:absolute;
+  inset:0;
+  border-radius:22px;
+  background:linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,.05));
+  clip-path:polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+  border:1px solid rgba(255,45,122,.08);
+  opacity:.85;
+  pointer-events:none;
+}
+
+.env-flap{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:62%;
+  border-top-left-radius:22px;
+  border-top-right-radius:22px;
+  background:linear-gradient(180deg,#ffe1ef,#ffd0e3);
+  clip-path:polygon(0 0, 50% 80%, 100% 0);
+  transform-origin:top center;
+  transform:rotateX(180deg);
+  transition:transform 700ms cubic-bezier(.2,.85,.2,1);
+  box-shadow:0 16px 40px rgba(255,45,122,.15);
+}
+.paper{
+  position:absolute;
+  left:5%;
+  right:5%;
+  bottom:16px;
+  height:270px;
+  border-radius:18px;
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(0,0,0,.06);
+  overflow:hidden;
+  transform:translateY(-20px);   /* sửa ở đây */
+  transition:transform 800ms cubic-bezier(.2,.9,.2,1), filter 500ms ease;
+  z-index:2;
+}
+.paper-inner{
+  height:100%;
+  padding:18px 18px 16px 18px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  z-index:3;
+}
+
+/* Phase transitions: close + fly */
+.composer-page.phase-sealing .paper,
+.composer-page.phase-flying .paper,
+.composer-page.phase-sent .paper{
+  transform:translateY(0);
+  filter:saturate(.98);
+  z-index:1;
+}
+
+.env-front{ z-index:1; }
+.composer-page.phase-sealing .env-front,
+.composer-page.phase-flying .env-front,
+.composer-page.phase-sent .env-front{ z-index:3; }
+
+.composer-page.phase-sealing .env-flap,
+.composer-page.phase-flying .env-flap,
+.composer-page.phase-sent .env-flap{
+  transform:rotateX(0deg);
+}
+
+.composer-page.phase-flying .envelope{
+  animation:flyAway 900ms cubic-bezier(.22,1,.25,1) forwards;
+}
+
+.composer-page.phase-sent .envelope{
+  opacity:0;
+  transform:translateY(-20px) scale(.98);
+  pointer-events:none;
+}
+
+@keyframes flyAway{
+  0%{ transform:translate(0,0) rotate(0deg) scale(1); opacity:1; }
+  60%{ transform:translate(260px,-180px) rotate(10deg) scale(.96); opacity:1; }
+  100%{ transform:translate(520px,-420px) rotate(18deg) scale(.78); opacity:0; }
+}
+
+/* Result */
+.result{
+  width:min(720px,92vw);
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(255,45,122,.14);
+  backdrop-filter:blur(10px);
+  border-radius:18px;
+  padding:14px 14px 12px 14px;
+  box-shadow:0 22px 60px rgba(0,0,0,.10);
+}
+.result-title{
+  font-weight:900;
+  color:#ff2d7a;
+  margin-bottom:8px;
+}
+.result-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.result-link{
+  flex:1;
+  min-width:260px;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.10);
+  background:white;
+  color:#1f2937;
+  text-decoration:none;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.copy-btn{
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.10);
+  background:rgba(255,255,255,.9);
+  cursor:pointer;
+  font-weight:800;
+}
+.result-note{
+  margin-top:10px;
+  font-size:13px;
+  color:rgba(0,0,0,.62);
+}
+
+/* Decorative hearts + sparkles (reuse style) */
+.composer-heart{
+  width:18px;
+  height:18px;
+  background:rgba(255,105,180,.9);
+  position:absolute;
+  transform:rotate(45deg);
+  animation:heartFly 7s linear infinite;
+  opacity:.9;
+}
+.composer-heart::before,
+.composer-heart::after{
+  content:"";
+  width:18px;
+  height:18px;
+  background:rgba(255,105,180,.9);
+  border-radius:50%;
+  position:absolute;
+}
+.composer-heart::before{ top:-9px; }
+.composer-heart::after{ left:-9px; }
+.composer-heart.h1{ left:18%; bottom:-20px; }
+.composer-heart.h2{ left:52%; bottom:-20px; animation-delay:2.4s; }
+.composer-heart.h3{ left:78%; bottom:-20px; animation-delay:4.3s; }
+
+.composer-sparkle{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:rgba(255,255,255,.95);
+  position:absolute;
+  animation:blink 2.2s infinite;
+}
+.composer-sparkle.s1{ top:26%; left:20%; }
+.composer-sparkle.s2{ top:54%; left:70%; animation-delay:.7s; }
+.composer-sparkle.s3{ top:34%; left:52%; animation-delay:1.2s; }
+
+@keyframes heartFly{
+  0%{ transform:translateY(0) rotate(45deg); opacity:.95; }
+  100%{ transform:translateY(-620px) rotate(45deg); opacity:0; }
+}
+@keyframes blink{
+  0%,100%{ opacity:1; transform:scale(1); }
+  50%{ opacity:.25; transform:scale(.85); }
+}
+
+@media (max-width:520px){
+  .envelope{ height:350px; }
+  .paper{ height:285px; }
+  .composer-controls{ flex-direction:column; align-items:stretch; }
+  .music-select{ min-width:unset; width:100%; }
+  .send-btn{ width:100%; }
+}
