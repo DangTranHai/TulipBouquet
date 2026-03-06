@@ -162,7 +162,7 @@ export default function OpenWish() {
                     className="tulip-btn"
                     onClick={() => navigate("/tulip")}
                   >
-                    🌷 Bam vào đây nhé 💖
+                    🌷 Tặng Ngọc 1 bó hoa (Bấm vèo) 💖
                   </button>
                 </div>
               )}
