@@ -87,7 +87,7 @@ export default function OpenWish() {
     }
   };
 
-  const musicSrc = musicList[music]?.src ?? "/neulucdo.mp3";
+  const musicSrc = musicList[music]?.src ?? "/neucothemcohoi.mp4";
 
   return (
     <div className={`receiver-page phase-${phase}`}>
