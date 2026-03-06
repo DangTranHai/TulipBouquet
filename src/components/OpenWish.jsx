@@ -14,9 +14,9 @@ export default function OpenWish() {
 
   const musicList = useMemo(
     () => ({
-      "1": { src: "/neulucdo.mp3", label: "🎵🪻" },
-      "2": { src: "/tulip.mp4", label: "🎶 🌹" },
-      "3": { src: "/neucothemcohoi.mp4", label: "🎹 🌷" },
+      "1": { src: "/tulip.mp4", label: "🎵 🪻" },
+      "2": { src: "/neucothemcohoi.mp4", label: "🎶 🌷" },
+      "3": { src: "/neulucdo.mp3", label: "🎹 🌹" },
     }),
     []
   );
@@ -129,7 +129,7 @@ export default function OpenWish() {
             <div className="paper-inner">
 
               <div className="paper-title">
-                🌸 Happy Women's Day 🌸
+                🪻 Happy Women's Day 🪻
               </div>
 
               <div className="paper-message">
