@@ -14,9 +14,9 @@ export default function WriteWish() {
 
   const musicList = useMemo(
     () => ({
-      "1": { src: "/neulucdo.mp3", label: "🎵 Nếu lúc đó" },
-      "2": { src: "/tulip.mp4", label: "🎶 🌷" },
-      "3": { src: "/neulucdo.mp3", label: "🎹 Nếu lúc đó (piano)" },
+      "1": { src: "/neulucdo.mp3", label: "🎵 🪻" },
+      "2": { src: "/tulip.mp4", label: "🎶 🌹" },
+      "3": { src: "/neucothemcohoi.mp4", label: "🎹 🌷" },
     }),
     []
   );

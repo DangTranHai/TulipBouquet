@@ -1,10 +1,32 @@
 import "./TulipBouquet.css";
+import { useMemo, useRef, useEffect } from "react";
 
 export default function TulipBouquet() {
 
-  // Lấy text từ URL (được truyền từ WriteWish)
   const params = new URLSearchParams(window.location.search);
+
   const flowerText = params.get("flowerText") || "💖";
+  const music = params.get("music");
+
+  const audioRef = useRef(null);
+
+  const musicList = useMemo(
+    () => ({
+      "1": { src: "/neulucdo.mp3" },
+      "2": { src: "/tulip.mp4" },
+      "3": { src: "/neucothemcohoi.mp4" },
+    }),
+    []
+  );
+
+  const musicSrc = musicList[music]?.src ?? "/neucothemcohoi.mp4";
+
+  // tự phát nhạc khi vào trang
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play().catch(()=>{});
+    }
+  }, []);
 
   const particles = new Array(40).fill(0);
 
@@ -13,10 +35,25 @@ export default function TulipBouquet() {
 
       <div className="stars"></div>
 
-      {/* Text phía trên bó hoa */}
+      {/* TEXT */}
       <div className="glow-text">
         🌷 {flowerText} 🌷
       </div>
+
+      {/* AUDIO */}
+      <audio
+        ref={audioRef}
+        src={musicSrc}
+        loop
+        controls
+        autoPlay
+        style={{
+          position:"absolute",
+          top:"20px",
+          right:"20px",
+          zIndex:10
+        }}
+      />
 
       <svg className="flower-svg" viewBox="0 0 800 500">
 
