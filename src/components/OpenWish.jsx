@@ -129,7 +129,7 @@ export default function OpenWish() {
             <div className="paper-inner">
 
               <div className="paper-title">
-                🪻 Happy Women's Day 🪻
+                🌷 Happy Women's Day 🌷
               </div>
 
               <div className="paper-message">
